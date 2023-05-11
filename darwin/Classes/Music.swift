@@ -275,7 +275,7 @@ public class Player : NSObject, AVAudioPlayerDelegate {
         //This isn't currently possible in iOS. Even just changing your category options to .MixWithOthers causes your nowPlayingInfo to be ignored.
         do {
             if #available(iOS 10.0, *) {
-                try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default, options: [])
+                try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default, options: [.mixWithOthers])
                 try AVAudioSession.sharedInstance().setActive(true)
             } else {
                 try AVAudioSession.sharedInstance().setCategory(.playback, options: [])
@@ -517,7 +517,7 @@ public class Player : NSObject, AVAudioPlayerDelegate {
             /* set session category and mode with options */
             if #available(iOS 10.0, *) {
                 //try AVAudioSession.sharedInstance().setCategory(category, mode: mode, options: [.mixWithOthers])
-                try AVAudioSession.sharedInstance().setCategory(category, mode: .default, options: [])
+                try AVAudioSession.sharedInstance().setCategory(category, mode: .default, options: [.mixWithOthers])
                 try AVAudioSession.sharedInstance().setActive(true)
             } else {
                 
