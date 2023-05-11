@@ -520,13 +520,13 @@ class AssetsAudioPlayer {
     _playerEditor = null;
 
     if (_lifecycleObserver != null) {
-      WidgetsBinding.instance.removeObserver(_lifecycleObserver!);
+      WidgetsBinding.instance?.removeObserver(_lifecycleObserver!);
       _lifecycleObserver = null;
     }
   }
 
   void _init() {
-    // default action, can be overriden using player.onErrorDo = (error, player) { ACTION };
+    // default action, can be override using player.onErrorDo = (error, player) { ACTION };
     onErrorDo = (errorHandler) {
       print(errorHandler.error.message);
       errorHandler.player.stop();
@@ -690,7 +690,7 @@ class AssetsAudioPlayer {
       }
     });
     if (_lifecycleObserver != null) {
-      WidgetsBinding.instance.addObserver(_lifecycleObserver!);
+      WidgetsBinding.instance?.addObserver(_lifecycleObserver!);
     }
   }
 
